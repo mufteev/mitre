@@ -3,6 +3,7 @@ package stix
 import (
 	"context"
 	"fmt"
+	"io"
 
 	"github.com/goccy/go-json"
 )
@@ -15,6 +16,21 @@ func LoadFromByte(ctx context.Context, data []byte) ([]*Tactic, []*Technique, []
 	var bundle Bundle
 
 	if err := json.UnmarshalContext(ctx, data, &bundle); err != nil {
+		return nil, nil, nil, fmt.Errorf("decode: %w", err)
+	}
+
+	tactics, techniques, relationships, err := parseFlatObjects(bundle.Objects)
+	if err != nil {
+		return nil, nil, nil, fmt.Errorf("parse flat objects: %w", err)
+	}
+
+	return tactics, techniques, relationships, nil
+}
+
+func LoadFromReader(ctx context.Context, r io.Reader) ([]*Tactic, []*Technique, []*Relationship, error) {
+	var bundle Bundle
+
+	if err := json.NewDecoder(r).DecodeContext(ctx, &bundle); err != nil {
 		return nil, nil, nil, fmt.Errorf("decode: %w", err)
 	}
 
