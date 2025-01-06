@@ -1,6 +1,6 @@
 package flat
 
-import "mitre/attack/stix"
+import "github.com/mufteev/mitre/attack/stix"
 
 // associateTechnique связывает техники с их родительскими техниками.
 // Возвращает список техник с указанными родительскими техниками.

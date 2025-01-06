@@ -1,6 +1,6 @@
 package hierarchy
 
-import "mitre/attack/stix"
+import "github.com/mufteev/mitre/attack/stix"
 
 func associateTechnique(techniques []*stix.Technique, relationships []*stix.Relationship) []*Technique {
 	mapTechnique := make(map[string]*Technique)

@@ -3,7 +3,8 @@ package flat
 import (
 	"context"
 	"fmt"
-	"mitre/attack/stix"
+
+	"github.com/mufteev/mitre/attack/stix"
 )
 
 func LoadFromByteAssociate(ctx context.Context, data []byte) ([]*stix.Tactic, []*Technique, []*TechniqueTactic, error) {

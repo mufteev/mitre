@@ -3,7 +3,8 @@ package hierarchy
 import (
 	"context"
 	"fmt"
-	"mitre/attack/stix"
+
+	"github.com/mufteev/mitre/attack/stix"
 )
 
 func LoadFromByteAssociate(ctx context.Context, data []byte) ([]*Tactic, error) {

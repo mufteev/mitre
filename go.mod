@@ -1,4 +1,4 @@
-module mitre
+module github.com/mufteev/mitre
 
 go 1.22.4
 

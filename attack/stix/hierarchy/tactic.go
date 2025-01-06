@@ -1,6 +1,6 @@
 package hierarchy
 
-import "mitre/attack/stix"
+import "github.com/mufteev/mitre/attack/stix"
 
 // Tactic - описание тактики
 type Tactic struct {
